@@ -9,17 +9,18 @@
 Create a command line program that shows information about different file
 types in a specified folder.  For example:
 
-    :::bash
-    $ python ext_info.py .
-    png 16 2765632
-    py 1 2103
-    pyc 1 608
-    txt 10 34042
-    zip 3 4540097
+```bash
+$ python ext_info.py .
+png 16 2765632
+py 1 2103
+pyc 1 608
+txt 10 34042
+zip 3 4540097
 
-    $ python ext_info.py /home/udi/music/
-    m3u 12 97633
-    mp3 52 83654229
+$ python ext_info.py /home/udi/music/
+m3u 12 97633
+mp3 52 83654229
+```
 
 In the first example the current folder was checked (by specifying `.` on the
 command line as the parameter).  16 files with the "png" extension were found,
@@ -34,9 +35,8 @@ Implementation notes:
  * Output should be sorted by extension using string (lexical) order.
  * When no parameter is supplied the following should be displayed:
 
-        :::text
-        usage: ext_info.py path
-        displays number of files and total size of files per extension in the specified path.
+    usage: ext_info.py path
+    displays number of files and total size of files per extension in the specified path.
 
  * (This exercise scope is standard library modules, and not 3rd party packages)
 
@@ -49,12 +49,14 @@ Recommended modules and functions:
 
     Example:
 
-        #!python
-        import sys
-        if __name__ == '__main__':
-            print("I am:", sys.argv[0])
-            for i, s in enumerate(sys.argv[1:]):
-                print "Parameter #{}: {}".format(i+1, s)
+```python
+#!/user/bin/python3
+import sys
+if __name__ == '__main__':
+    print("I am:", sys.argv[0])
+    for i, s in enumerate(sys.argv[1:]):
+        print("Parameter #{}: {}".format(i+1, s))
+```
 
  * [`os.listdir`](http://docs.python.org/2/library/os.html#os.listdir):
 
@@ -63,11 +65,12 @@ Recommended modules and functions:
 
     Example:
 
-        :::python
-        import os
+```python
+import os
 
-        for filename in os.listdir('.'):
-            print filename
+for filename in os.listdir('.'):
+    print(filename)
+```
 
 
  * [`os.path.join`](http://docs.python.org/2/library/os.path.html#os.path.join).
@@ -77,27 +80,29 @@ Recommended modules and functions:
 
     Windows example:
 
-        :::python
-        import os.path
+```python
+import os.path
 
-        home_folder = r'c:\users\foo'
-        child = r'projects'
-        filename = r'pictures\baz.jpeg'
+home_folder = r'c:\users\foo'
+child = r'projects'
+filename = r'pictures\baz.jpeg'
 
-        print os.path.join(home_folder, child, filename)
-        # prints: c:\users\foo\projects\pictures\baz.jpeg
+print(os.path.join(home_folder, child, filename))
+# prints: c:\users\foo\projects\pictures\baz.jpeg
+```
 
     Linux example:
 
-        :::python
-        import os.path
+```python
+import os.path
 
-        home_folder = '/home/foo/'
-        child = 'projects'
-        filename = 'pictures/baz.jpeg'
+home_folder = '/home/foo/'
+child = 'projects'
+filename = 'pictures/baz.jpeg'
 
-        print os.path.join(home_folder, child, filename)
-        # prints: /home/foo/projects/pictures/baz.jpeg
+print(os.path.join(home_folder, child, filename))
+# prints: /home/foo/projects/pictures/baz.jpeg
+```
 
  * And:
    [`os.path.isdir`](http://docs.python.org/2/library/os.path.html#os.path.isdir),
@@ -108,24 +113,25 @@ Recommended modules and functions:
 
     Example:
 
-        #!python
-        from collections import defaultdict
+```python
+from collections import defaultdict
 
-        def create_player():
-            return {
-                'hit points': 10,
-                'money': 1000,
-            }
+def create_player():
+    return {
+        'hit points': 10,
+        'money': 1000,
+    }
 
-        players = defaultdict(create_player)
+players = defaultdict(create_player)
 
-        # defaultdict calls create_player on first access to players['foo'].
-        # There is no need to explicitly call:
-        #   players['foo'] = create_player()
+# defaultdict calls create_player on first access to players['foo'].
+# There is no need to explicitly call:
+#   players['foo'] = create_player()
 
-        players['Aragorn']['hit points'] += 5
-        players['Frodo']['hit points'] -= 1
-        players['Bilbo']['money'] += 50
+players['Aragorn']['hit points'] += 5
+players['Frodo']['hit points'] -= 1
+players['Bilbo']['money'] += 50
 
-        for name, info in players.items():
-            print name, info
+for name, info in players.items():
+    print(name, info)
+```
