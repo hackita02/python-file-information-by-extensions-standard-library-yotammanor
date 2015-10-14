@@ -1,8 +1,8 @@
 # Instructions
 1. Clone this repository 
-2. Create the following exrecise in `ext_info.py`.
-3. Don't forget to add, commit and push your work.
-4. Send your repo url to via https://hackita02.hasadna.org.il/sa/ 
+2. Create the following exercise in `ext_info.py`.
+3. Commit and push your work to your online repo.
+4. Don't forget to copy your repo url and complete the survey when you are done. 
 
 # File Information By Extension (Python Standard Library Exercise)
 
