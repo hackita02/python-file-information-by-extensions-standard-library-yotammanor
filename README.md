@@ -42,7 +42,7 @@ Implementation notes:
 
 ## Recommended modules and functions:
 
- * [`sys.argv`](http://docs.python.org/2/library/sys.html#sys.argv)
+ * [`sys.argv`](https://docs.python.org/3/library/sys.html#sys.argv)
 
     > The list of command line arguments passed to a Python script.
     argv[0] is the script name...
@@ -58,58 +58,21 @@ if __name__ == '__main__':
         print("Parameter #{}: {}".format(i+1, s))
 ```
 
- * [`os.listdir`](http://docs.python.org/2/library/os.html#os.listdir):
+ * [`pathlib`](https://docs.python.org/3/library/pathlib.html) is a cool
+   module for working with files.
 
-    > Return a list containing the names of the entries in the directory
-    given by path...
-
-    Example:
+    Try this:
 
 ```python
-import os
+from pathlib import Path
 
-for filename in os.listdir('.'):
-    print(filename)
+folder = Path('.')
+for p in folder.iterdir():
+    print(p, p.is_dir(), p.is_file(), p.stat().st_size, p.suffix)
 ```
 
 
- * [`os.path.join`](http://docs.python.org/2/library/os.path.html#os.path.join).
-   Always use this to concatenate paths.
-
-    > Join one or more path components intelligently...
-
-    Windows example:
-
-```python
-import os.path
-
-home_folder = r'c:\users\foo'
-child = r'projects'
-filename = r'pictures\baz.jpeg'
-
-print(os.path.join(home_folder, child, filename))
-# prints: c:\users\foo\projects\pictures\baz.jpeg
-```
-
-    Linux example:
-
-```python
-import os.path
-
-home_folder = '/home/foo/'
-child = 'projects'
-filename = 'pictures/baz.jpeg'
-
-print(os.path.join(home_folder, child, filename))
-# prints: /home/foo/projects/pictures/baz.jpeg
-```
-
- * And:
-   [`os.path.isdir`](http://docs.python.org/2/library/os.path.html#os.path.isdir),
-   [`os.path.getsize`](http://docs.python.org/2/library/os.path.html#os.path.getsize),
-   and [`os.path.splitext`](http://docs.python.org/2/library/os.path.html#os.path.splitext).
-
- * Bonus: use [`collection.defaultdict`](http://docs.python.org/2/library/collections.html#collections.defaultdict).
+ * Bonus: use [`collection.defaultdict`](https://docs.python.org/3/library/collections.html#collections.defaultdict).
 
     Example:
 
