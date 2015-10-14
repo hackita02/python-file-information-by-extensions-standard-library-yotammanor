@@ -35,12 +35,12 @@ Implementation notes:
  * Output should be sorted by extension using string (lexical) order.
  * When no parameter is supplied the following should be displayed:
 
-    usage: ext_info.py path
-    displays number of files and total size of files per extension in the specified path.
+        usage: ext_info.py path
+        displays number of files and total size of files per extension in the specified path.
 
  * (This exercise scope is standard library modules, and not 3rd party packages)
 
-Recommended modules and functions:
+## Recommended modules and functions:
 
  * [`sys.argv`](http://docs.python.org/2/library/sys.html#sys.argv)
 
