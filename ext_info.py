@@ -1,3 +1,4 @@
+#! python3
 from sys import argv
 from pathlib import Path
 from collections import defaultdict
