@@ -14,7 +14,11 @@ def extension_dict():
 extensions = defaultdict(extension_dict)
 
 if __name__ == '__main__':
-    path = argv[1]
+    try:
+        path = argv[1]
+    except IndexError:
+        print('usage: ext_info <path>')
+        quit()
     folder = Path(path)
     for fl in [x for x in folder.iterdir() if x.is_file()]:
         ext = fl.suffix.split('.')[-1] or '.'   # removes leading dot.
