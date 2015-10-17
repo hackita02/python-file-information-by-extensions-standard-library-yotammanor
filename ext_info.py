@@ -1,5 +1,5 @@
 #! python3
-from sys import argv
+from sys import argv, exit
 from pathlib import Path
 from collections import defaultdict
 
@@ -18,7 +18,7 @@ if __name__ == '__main__':
         path = argv[1]
     except IndexError:
         print('usage: ext_info <path>')
-        quit()
+        exit()
     folder = Path(path)
     for fl in [x for x in folder.iterdir() if x.is_file()]:
         ext = fl.suffix.split('.')[-1] or '.'   # removes leading dot.
