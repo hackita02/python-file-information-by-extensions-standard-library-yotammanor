@@ -1,5 +1,5 @@
 #! python3
-from sys import argv
+from sys import argv, exit
 from pathlib import Path
 from collections import defaultdict
 
@@ -14,12 +14,14 @@ def extension_dict():
 extensions = defaultdict(extension_dict)
 
 if __name__ == '__main__':
-    path = argv[1]
+    try:
+        path = argv[1]
+    except IndexError:
+        print('usage: ext_info <path>')
+        exit()
     folder = Path(path)
     for fl in [x for x in folder.iterdir() if x.is_file()]:
-        ext = fl.suffix.split('.')[-1]  # removes leading dot.
-        if not ext:
-            ext = '.'
+        ext = fl.suffix.split('.')[-1] or '.'   # removes leading dot.
         extensions[ext]['num_of_files'] += 1
         extensions[ext]['total_size_of_files'] += fl.stat().st_size
 
